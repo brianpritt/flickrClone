@@ -1,0 +1,50 @@
+﻿@using System.Security.Claims
+@model List<FlickrClone.Models.Photo>
+
+<h2>Details</h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <form method="post" asp-action="Create" asp-controller="Home" enctype="multipart/form-data">
+        <label>Title</label>
+        <div class="input-field">
+            <input type="text" id="name" name="name" />
+        </div>
+        <label>Description</label>
+        <div class="input-field">
+            <input type="text" id="description" name="description" />
+        </div>
+        <label>Choose Picture</label>
+        <div class="input-field">
+            <input type="file" id="picture" name="picture" />
+        </div>
+        <button class="btn waves-effect" type="submit">Add to Database</button>
+    </form>
+
+    <h3>Your Gallery:</h3>
+
+    <div class="card-container">
+
+
+        @foreach (FlickrClone.Models.Photo photo in Model)
+        {
+            string photoImage = "";
+            if (photo.Picture != null)
+            {
+                var base64File = Convert.ToBase64String(photo.Picture);
+                photoImage = String.Format("data:image/gif;base64,{0}", base64File);
+
+            }
+            <div class="dope-af-card">
+                <img src="@photoImage" />
+            </div>
+
+        }
+    </div>
+}
+else
+{
+    <h2>You must be logged in to view this page</h2>
+    <p> @Html.ActionLink("Register", "Register") </p>
+    <p> @Html.ActionLink("Log in", "Login") </p>
+}

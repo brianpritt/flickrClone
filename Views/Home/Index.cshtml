@@ -1,0 +1,30 @@
+﻿@model List<FlickrClone.Models.Photo>
+
+<h1>This is an index</h1>
+
+
+<div class="card-container">
+
+
+    @foreach (FlickrClone.Models.Photo photo in Model)
+    {
+        string photoImage = "";
+        if (photo.Picture != null)
+        {
+            var base64File = Convert.ToBase64String(photo.Picture);
+            photoImage = String.Format("data:image/gif;base64,{0}", base64File);
+
+        }
+        <div class="dope-af-card">
+            <img src="@photoImage" />
+            <div class="card-title">
+                <h5>@photo.PhotoName</h5>
+            </div>
+            <div class="card-description">
+                <p>@photo.PhotoDescription</p>
+            </div>
+        </div>
+
+    }
+
+</div>

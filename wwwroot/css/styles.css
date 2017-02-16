@@ -1,0 +1,77 @@
+﻿body {
+    margin: 0;
+}
+
+.navbar {
+    border: 1px solid black;
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 5vh;
+    line-height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-title {
+    font-weight: 500;
+    font-size: 1.5em;
+    flex: 70%;
+    margin-left: 5%;
+}
+
+.navbar-tab {
+    flex: 15%;
+    overflow: visible;
+}
+
+.navbar-tab > a, .navbar-title > a {
+    text-decoration: none;
+}
+
+.navbar-tab > a:visited, .navbar-title > a:visited {
+    color: white;
+}
+
+.navbtn {
+    background: none;
+    border: none;
+    color: white;
+    outline: none;
+    transition: all .4s;
+}
+
+.navbtn:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.add-new-picture {
+
+}
+
+.input-field {
+    display: inline;
+}
+
+.card-container {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid red;
+      min-width: 300px;
+}
+
+.dope-af-card {
+  height: auto;
+  width: 100px;
+  border: 1px solid blue;
+  margin: 0;
+  margin: auto;
+  flex: 30%;
+  max-width: 250px;
+  min-width: 150px;
+}
+
+.dope-af-card img {
+    width: 250px;
+}

@@ -1,0 +1,32 @@
+﻿@using System.Security.Claims
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="navbar">
+        <div class="navbar-title">
+            <a href="/Home/Index"> flickr-er</a>
+        </div>
+        <div class="navbar-tab">
+            <a href="/Account/Index">@User.Identity.Name</a>
+        </div>
+        <div class="navbar-tab">
+            <form asp-controller="Account" asp-action="LogOff" method="post">
+                <button class="navbtn">Sign Out</button>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <div class="navbar">
+        <div class="navbar-title">
+           <a href="/Home/Index"> flickr-er</a>
+        </div>
+        <div class="navbar-tab">
+            <a href="/Account/Login">Login</a>
+        </div>
+        <div class="navbar-tab">
+            <a href="/Account/Register">Sign Up</a>
+        </div>
+    </div>
+}
